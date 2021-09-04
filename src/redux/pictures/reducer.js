@@ -7,12 +7,14 @@ import {
   FILTER_DOWN_BY_COMMENTS,
   FILTER_UP_BY_COMMENTS,
   FILTER_BY_TAGS,
+  FIND_PICTURE_BY_ID,
 } from "./types";
 
 const initialState = {
   pictures: [],
   loading: false,
   failed: false,
+  currentPicture: {},
 };
 
 const sortDrafts = (a, b) => (a.id > b.id ? 1 : -1);
@@ -35,6 +37,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, pictures: state.pictures.sort((a, b) => (a.comments > b.comments ? 1 : -1)) };
     case FILTER_BY_TAGS:
       return { ...state, pictures: state.pictures.filter(({ tags }) => tags.includes(action.value)) };
+    case FIND_PICTURE_BY_ID:
+      return { ...state, currentPicture: state.pictures.find(({ id }) => id === action.id) };
     default:
       return state;
   }

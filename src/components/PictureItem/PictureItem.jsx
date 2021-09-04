@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 import Tag from "../Tag/Tag";
 
 const PictureItem = ({ picture }) => {
-  const { pageURL, webformatURL, tags, likes, comments } = picture;
+  const { id, pageURL, webformatURL, tags, likes, comments } = picture;
 
   const tagsArr = tags.split(", ");
   return (
     <li className="picture-item">
       <div className="picture-container">
-        <a href={pageURL} target="_blank" rel="noreferrer">
+        <Link to={`/${id}`}>
           <img src={webformatURL} alt="" />
-        </a>
+        </Link>
       </div>
       <div className="picture-info">
         <p>Likes: {likes}</p>
