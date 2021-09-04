@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { debounce } from "throttle-debounce";
 
 import {
   getGamesByParams,
@@ -7,6 +8,7 @@ import {
   filterUpByLikes,
   filterDownByComments,
   filterUpByComments,
+  filterByTags,
 } from "../../redux/pictures/actions";
 
 import PictureItem from "../PictureItem/PictureItem";
@@ -35,13 +37,21 @@ const PicturesList = () => {
     dispatch(filterUpByComments());
   };
 
+  const handleInput = debounce(300, (e) => {
+    if (e.target.value === "") {
+      dispatch(getGamesByParams());
+      return;
+    }
+    dispatch(filterByTags(e.target.value));
+  });
+
   return (
     <main className="main">
       <h1>Pictures List</h1>
       <div className="filters-container">
         <label htmlFor="filterTags">
           Sort by Tags
-          <input type="text" name="text" id="filterTags" />
+          <input type="text" name="text" id="filterTags" onKeyUp={handleInput} />
         </label>
         <div className="sort-container">
           <span>Sort by Likes</span>

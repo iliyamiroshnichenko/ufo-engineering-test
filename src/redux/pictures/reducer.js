@@ -6,6 +6,7 @@ import {
   FILTER_UP_BY_LIKES,
   FILTER_DOWN_BY_COMMENTS,
   FILTER_UP_BY_COMMENTS,
+  FILTER_BY_TAGS,
 } from "./types";
 
 const initialState = {
@@ -32,6 +33,8 @@ export const reducer = (state = initialState, action) => {
       return { ...state, pictures: state.pictures.sort((a, b) => (a.comments < b.comments ? 1 : -1)) };
     case FILTER_UP_BY_COMMENTS:
       return { ...state, pictures: state.pictures.sort((a, b) => (a.comments > b.comments ? 1 : -1)) };
+    case FILTER_BY_TAGS:
+      return { ...state, pictures: state.pictures.filter(({ tags }) => tags.includes(action.value)) };
     default:
       return state;
   }
