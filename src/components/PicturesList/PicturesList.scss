@@ -1,0 +1,25 @@
+@import "../PictureItem/PictureItem.scss";
+
+.main {
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .filers-container {
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    margin: 0 auto 20px;
+
+    input {
+      margin-left: 10px;
+    }
+  }
+
+  .pictures-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+}

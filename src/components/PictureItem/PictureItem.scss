@@ -1,0 +1,20 @@
+.picture-item {
+  @import "../Tag/Tag.scss";
+
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  width: calc((100% - 4 * 30px) / 4);
+
+  .picture-container {
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+    margin-top: 10px;
+  }
+}

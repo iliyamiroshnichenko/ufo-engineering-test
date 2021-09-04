@@ -6,7 +6,7 @@ import App from "./App";
 import store from "./redux/store";
 
 import "modern-normalize/modern-normalize.css";
-import "./index.css";
+import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>

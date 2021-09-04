@@ -1,14 +1,13 @@
-import "./App.css";
+import "./App.scss";
 
-import { useEffect } from "react";
-import getImages from "./api/service";
+import PicturesList from "./components/PicturesList/PicturesList";
 
 function App() {
-  useEffect(() => {
-    getImages();
-  }, []);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <PicturesList />
+    </div>
+  );
 }
 
 export default App;
