@@ -1,4 +1,12 @@
-import { GET_PICTURES, IS_LOADING_PICTURES, IS_FAILED_PICTURES, FILTER_BY_LIKES, FILTER_BY_COMMENTS } from "./types";
+import {
+  GET_PICTURES,
+  IS_LOADING_PICTURES,
+  IS_FAILED_PICTURES,
+  FILTER_DOWN_BY_LIKES,
+  FILTER_UP_BY_LIKES,
+  FILTER_DOWN_BY_COMMENTS,
+  FILTER_UP_BY_COMMENTS,
+} from "./types";
 
 const initialState = {
   pictures: [],
@@ -16,10 +24,14 @@ export const reducer = (state = initialState, action) => {
       return { ...state, loading: action.loading };
     case IS_FAILED_PICTURES:
       return { ...state, pictures: action.failed };
-    case FILTER_BY_LIKES:
+    case FILTER_DOWN_BY_LIKES:
       return { ...state, pictures: state.pictures.sort((a, b) => (a.likes < b.likes ? 1 : -1)) };
-    case FILTER_BY_COMMENTS:
+    case FILTER_UP_BY_LIKES:
+      return { ...state, pictures: state.pictures.sort((a, b) => (a.likes > b.likes ? 1 : -1)) };
+    case FILTER_DOWN_BY_COMMENTS:
       return { ...state, pictures: state.pictures.sort((a, b) => (a.comments < b.comments ? 1 : -1)) };
+    case FILTER_UP_BY_COMMENTS:
+      return { ...state, pictures: state.pictures.sort((a, b) => (a.comments > b.comments ? 1 : -1)) };
     default:
       return state;
   }

@@ -6,12 +6,41 @@
     margin-bottom: 20px;
   }
 
-  .filers-container {
+  .filters-container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 800px;
     margin: 0 auto 20px;
 
+    .sort-container {
+      display: flex;
+      align-items: center;
+
+      span {
+        display: block;
+        margin-right: 5px;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+
+        .down-icon {
+          color: red;
+        }
+        .up-icon {
+          color: green;
+        }
+      }
+    }
     input {
       margin-left: 10px;
     }

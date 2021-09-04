@@ -1,9 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getGamesByParams, filterByLikes, filterByComments } from "../../redux/pictures/actions";
+import {
+  getGamesByParams,
+  filterDownByLikes,
+  filterUpByLikes,
+  filterDownByComments,
+  filterUpByComments,
+} from "../../redux/pictures/actions";
 
 import PictureItem from "../PictureItem/PictureItem";
+
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 const PicturesList = () => {
   const dispatch = useDispatch();
@@ -13,23 +22,45 @@ const PicturesList = () => {
     dispatch(getGamesByParams());
   }, []);
 
-  const handleSortByLikesBtnClick = () => {
-    dispatch(filterByLikes());
+  const sortDownByLikes = () => {
+    dispatch(filterDownByLikes());
   };
-  const handleSortByCommentsBtnClick = () => {
-    dispatch(filterByComments());
+  const sortUpByLikes = () => {
+    dispatch(filterUpByLikes());
+  };
+  const sortDownByComments = () => {
+    dispatch(filterDownByComments());
+  };
+  const sortUpByComments = () => {
+    dispatch(filterUpByComments());
   };
 
   return (
     <main className="main">
       <h1>Pictures List</h1>
-      <div className="filers-container">
+      <div className="filters-container">
         <label htmlFor="filterTags">
           Sort by Tags
           <input type="text" name="text" id="filterTags" />
         </label>
-        <button onClick={handleSortByLikesBtnClick}>Sort by Likes</button>
-        <button onClick={handleSortByCommentsBtnClick}>Sort by Comments</button>
+        <div className="sort-container">
+          <span>Sort by Likes</span>
+          <button onClick={sortUpByLikes}>
+            <KeyboardArrowUpIcon className="up-icon" />
+          </button>
+          <button onClick={sortDownByLikes}>
+            <KeyboardArrowDownIcon className="down-icon" />
+          </button>
+        </div>
+        <div className="sort-container">
+          <span>Sort by Comments</span>
+          <button onClick={sortUpByComments}>
+            <KeyboardArrowUpIcon className="up-icon" />
+          </button>
+          <button onClick={sortDownByComments}>
+            <KeyboardArrowDownIcon className="down-icon" />
+          </button>
+        </div>
       </div>
       <ul className="pictures-list">
         {pictures.map((picture) => (

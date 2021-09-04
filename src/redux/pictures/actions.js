@@ -1,4 +1,12 @@
-import { GET_PICTURES, IS_LOADING_PICTURES, IS_FAILED_PICTURES, FILTER_BY_LIKES, FILTER_BY_COMMENTS } from "./types";
+import {
+  GET_PICTURES,
+  IS_LOADING_PICTURES,
+  IS_FAILED_PICTURES,
+  FILTER_DOWN_BY_LIKES,
+  FILTER_UP_BY_LIKES,
+  FILTER_DOWN_BY_COMMENTS,
+  FILTER_UP_BY_COMMENTS,
+} from "./types";
 import { getImages } from "../../api/service";
 
 export const getGamesByParams = () => async (dispatch) => {
@@ -14,6 +22,8 @@ export const getGamesByParams = () => async (dispatch) => {
   }
 };
 
-export const filterByLikes = () => (dispatch) => dispatch({ type: FILTER_BY_LIKES });
+export const filterDownByLikes = () => (dispatch) => dispatch({ type: FILTER_DOWN_BY_LIKES });
+export const filterUpByLikes = () => (dispatch) => dispatch({ type: FILTER_UP_BY_LIKES });
 
-export const filterByComments = () => (dispatch) => dispatch({ type: FILTER_BY_COMMENTS });
+export const filterDownByComments = () => (dispatch) => dispatch({ type: FILTER_DOWN_BY_COMMENTS });
+export const filterUpByComments = () => (dispatch) => dispatch({ type: FILTER_UP_BY_COMMENTS });
