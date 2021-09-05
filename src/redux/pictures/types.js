@@ -7,3 +7,4 @@ export const FILTER_DOWN_BY_COMMENTS = "pictures/FILTER_DOWN_BY_COMMENTS";
 export const FILTER_UP_BY_COMMENTS = "pictures/FILTER_UP_BY_COMMENTS";
 export const FILTER_BY_TAGS = "pictures/FILTER_BY_TAGS";
 export const FIND_PICTURE_BY_ID = "pictures/FIND_PICTURE_BY_ID";
+export const EDIT_TAG = "pictures/EDIT_TAG";

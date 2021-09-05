@@ -4,7 +4,6 @@ import Tag from "../Tag/Tag";
 const PictureItem = ({ picture }) => {
   const { id, webformatURL, tags, likes, comments } = picture;
 
-  const tagsArr = tags.split(", ");
   return (
     <li className="picture-item">
       <div className="picture-container">
@@ -16,8 +15,8 @@ const PictureItem = ({ picture }) => {
         <p>Likes: {likes}</p>
         <p>Comments: {comments}</p>
         <ul className="tags-container">
-          {tagsArr.map((tag) => (
-            <Tag key={tag} tag={tag} />
+          {tags.map((tag, idx) => (
+            <Tag key={tag} tag={tag} id={id} idx={idx} />
           ))}
         </ul>
       </div>

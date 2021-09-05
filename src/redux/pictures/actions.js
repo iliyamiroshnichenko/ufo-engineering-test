@@ -8,6 +8,7 @@ import {
   FILTER_UP_BY_COMMENTS,
   FILTER_BY_TAGS,
   FIND_PICTURE_BY_ID,
+  EDIT_TAG,
 } from "./types";
 import { getImages } from "../../api/service";
 
@@ -33,3 +34,5 @@ export const filterUpByComments = () => (dispatch) => dispatch({ type: FILTER_UP
 export const filterByTags = (value) => (dispatch) => dispatch({ type: FILTER_BY_TAGS, value });
 
 export const findPictureById = (id) => (dispatch) => dispatch({ type: FIND_PICTURE_BY_ID, id });
+
+export const editTag = (id, text, idx) => (dispatch) => dispatch({ type: EDIT_TAG, payload: { id, text, idx } });
