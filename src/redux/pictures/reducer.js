@@ -39,7 +39,10 @@ export const reducer = (state = initialState, action) => {
     case FILTER_UP_BY_COMMENTS:
       return { ...state, pictures: state.pictures.sort((a, b) => (a.comments > b.comments ? 1 : -1)) };
     case FILTER_BY_TAGS:
-      return { ...state, pictures: state.pictures.filter(({ tags }) => tags.includes(action.value)) };
+      return {
+        ...state,
+        pictures: state.pictures.filter(({ tags }) => tags.find((tag) => tag.includes(action.value))),
+      };
     case FIND_PICTURE_BY_ID:
       return { ...state, currentPicture: state.pictures.find(({ id }) => id === action.id) };
     case EDIT_TAG:
