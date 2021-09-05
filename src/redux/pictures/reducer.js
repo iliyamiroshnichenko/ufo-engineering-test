@@ -17,8 +17,6 @@ const initialState = {
   currentPicture: {},
 };
 
-const sortDrafts = (a, b) => (a.id > b.id ? 1 : -1);
-
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PICTURES:

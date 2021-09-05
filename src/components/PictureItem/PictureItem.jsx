@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Tag from "../Tag/Tag";
 
 const PictureItem = ({ picture }) => {
-  const { id, pageURL, webformatURL, tags, likes, comments } = picture;
+  const { id, webformatURL, tags, likes, comments } = picture;
 
   const tagsArr = tags.split(", ");
   return (

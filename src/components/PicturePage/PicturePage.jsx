@@ -16,22 +16,28 @@ const PicturePage = () => {
 
   return (
     <>
-      <img src={currentPicture.largeImageURL} alt="" />
-      <span>
-        Link to page:
-        <a href={currentPicture.pageURL} target="_blank" rel="noreferrer">
-          {currentPicture.pageURL}
-        </a>
-      </span>
-      <p>Tags: {currentPicture.tags}</p>
-      <p>Views: {currentPicture.views}</p>
-      <p>Downloads: {currentPicture.downloads}</p>
-      <p>Collections: {currentPicture.collections}</p>
-      <p>Likes: {currentPicture.likes}</p>
-      <p>Comments: {currentPicture.comments}</p>
-      <p>User name: {currentPicture.user}</p>
-      <p>User name:</p>
-      <img className="user-avatar" src={currentPicture.userImageURL} alt="user avatar" width="100" height="100" />
+      {currentPicture && Object.keys(currentPicture) ? (
+        <div>
+          <img src={currentPicture.largeImageURL} alt="" className="big-image" />
+          <span>
+            Link to page:
+            <a href={currentPicture.pageURL} target="_blank" rel="noreferrer">
+              {currentPicture.pageURL}
+            </a>
+          </span>
+          <p>Tags: {currentPicture.tags}</p>
+          <p>Views: {currentPicture.views}</p>
+          <p>Downloads: {currentPicture.downloads}</p>
+          <p>Collections: {currentPicture.collections}</p>
+          <p>Likes: {currentPicture.likes}</p>
+          <p>Comments: {currentPicture.comments}</p>
+          <p>User name: {currentPicture.user}</p>
+          <p>User avatar:</p>
+          <img className="user-avatar" src={currentPicture.userImageURL} alt="user avatar" width="100" height="100" />
+        </div>
+      ) : (
+        <p>Oops, we have some mistake</p>
+      )}
     </>
   );
 };
